@@ -26,6 +26,8 @@ pipeline {
     
         sh 'docker pull sbicr6.azurecr.io/viya-4-x64_oci_linux_2-docker/sas-orchestration:1.70.4-20220322.1647971763125' 
         sh 'docker tag sbicr6.azurecr.io/viya-4-x64_oci_linux_2-docker/sas-orchestration:1.70.4-20220322.1647971763125 sas-orchestration'
+        sh 'cd ./operator_deploy && kubectl -n sasoperator   create secret generic sas-orchestration-secret   --type=kubernetes.io/dockerconfigjson   --from-file=.dockerconfigjson=site-config/image-pull-secret.json'
+
 
       }
     }
