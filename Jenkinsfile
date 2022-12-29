@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Create TXT') {
       steps {
         writeFile(file: 'Push.txt', text: 'Hello There!!!')
       }
